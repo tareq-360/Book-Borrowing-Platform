@@ -5,7 +5,7 @@ import userPng from "@/assets/user.png"
 import logo from "@/assets/logo.png";
 const Navbar = () => {
     return (
-        <div className=" mx-auto mb-5 shadow-md bg-slate-900 sm:px-4">
+        <div className=" mx-auto pb-5 shadow-md bg-slate-900 sm:px-4">
             <div className="navbar  min-h-[4rem]">
 
                 <div>
@@ -25,8 +25,8 @@ const Navbar = () => {
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[50] mt-3 w-52 p-2 shadow-lg border border-gray-100"
                         >
                             <li><NavLink href="/">Home</NavLink></li>
-                            <li><NavLink href="/about-us">About</NavLink></li>
-                            <li><NavLink href="/career">Career</NavLink></li>
+                            <li><NavLink href="/about-us">All Books</NavLink></li>
+                            <li><NavLink href="/career">My Profile</NavLink></li>
                         </ul>
                     </div>
                 </div>
@@ -35,8 +35,8 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 font-medium gap-2">
                         <li><NavLink href="/">Home</NavLink></li>
-                        <li><NavLink href="/about-us">About</NavLink></li>
-                        <li><NavLink href="/career">Career</NavLink></li>
+                        <li><NavLink href="/about-us">All Books</NavLink></li>
+                        <li><NavLink href="/career">My Profile</NavLink></li>
                     </ul>
                 </div>
 
