@@ -1,0 +1,110 @@
+{"books":[
+  {
+    "id": 1,
+    "title": "The Quiet Orbit",
+    "author": "A. Renner",
+    "description": "A lonely astronaut drifting between assignments discovers a signal that forces her to choose between home and the unknown.",
+    "category": "Story",
+    "available_quantity": 3,
+    "image_url": "https://picsum.photos/seed/book1/300/450"
+  },
+  {
+    "id": 2,
+    "title": "Clean Code, Clear Mind",
+    "author": "D. Okafor",
+    "description": "A practical guide to writing maintainable software, covering naming, structure, and the habits that separate good code from great code.",
+    "category": "Tech",
+    "available_quantity": 5,
+    "image_url": "https://picsum.photos/seed/book2/300/450"
+  },
+  {
+    "id": 3,
+    "title": "The Weight of Small Things",
+    "author": "M. Osei",
+    "description": "Three generations of a coastal family navigate grief, inheritance, and the quiet ways love gets passed down.",
+    "category": "Story",
+    "available_quantity": 2,
+    "image_url": "https://picsum.photos/seed/book3/300/450"
+  },
+  {
+    "id": 4,
+    "title": "Neural Foundations",
+    "author": "S. Whitfield",
+    "description": "An accessible introduction to neural networks, from perceptrons to transformers, with intuition-first explanations.",
+    "category": "Tech",
+    "available_quantity": 0,
+    "image_url": "https://picsum.photos/seed/book4/300/450"
+  },
+  {
+    "id": 5,
+    "title": "Field Notes on the Universe",
+    "author": "J. Ferro",
+    "description": "A working astronomer's reflections on stars, time, and the strange comfort of cosmic scale.",
+    "category": "Science",
+    "available_quantity": 4,
+    "image_url": "https://picsum.photos/seed/book5/300/450"
+  },
+  {
+    "id": 6,
+    "title": "Harbor Lights",
+    "author": "L. Vance",
+    "description": "A retired lighthouse keeper's final winter is upended by a stranger who washes ashore with no memory of who she is.",
+    "category": "Story",
+    "available_quantity": 1,
+    "image_url": "https://picsum.photos/seed/book6/300/450"
+  },
+  {
+    "id": 7,
+    "title": "Systems That Scale",
+    "author": "R. Patel",
+    "description": "A hands-on look at designing distributed systems, covering caching, queues, and failure recovery at scale.",
+    "category": "Tech",
+    "available_quantity": 6,
+    "image_url": "https://picsum.photos/seed/book7/300/450"
+  },
+  {
+    "id": 8,
+    "title": "The Chemistry of Ordinary Days",
+    "author": "T. Lindqvist",
+    "description": "A chemist explains the science hiding in everyday life, from cooking to weather to the ink in your pen.",
+    "category": "Science",
+    "available_quantity": 3,
+    "image_url": "https://picsum.photos/seed/book8/300/450"
+  },
+  {
+    "id": 9,
+    "title": "Salt and Paper",
+    "author": "M. Osei",
+    "description": "A letter-writing correspondence between two estranged sisters slowly rebuilds what silence had broken.",
+    "category": "Story",
+    "available_quantity": 2,
+    "image_url": "https://picsum.photos/seed/book9/300/450"
+  },
+  {
+    "id": 10,
+    "title": "Genomes Decoded",
+    "author": "H. Nakamura",
+    "description": "A clear, current guide to genetics and gene editing, written for curious readers without a science background.",
+    "category": "Science",
+    "available_quantity": 4,
+    "image_url": "https://picsum.photos/seed/book10/300/450"
+  },
+  {
+    "id": 11,
+    "title": "Ship It Anyway",
+    "author": "C. Bergstrom",
+    "description": "A candid look at how real engineering teams ship products under uncertainty, deadlines, and imperfect information.",
+    "category": "Tech",
+    "available_quantity": 5,
+    "image_url": "https://picsum.photos/seed/book11/300/450"
+  },
+  {
+    "id": 12,
+    "title": "The Last Orchard",
+    "author": "A. Renner",
+    "description": "When a family orchard faces foreclosure, an estranged son returns home and finds more roots than he expected.",
+    "category": "Story",
+    "available_quantity": 0,
+    "image_url": "https://picsum.photos/seed/book12/300/450"
+  }
+]}

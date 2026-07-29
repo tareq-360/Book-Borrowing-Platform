@@ -5,11 +5,13 @@ import userPng from "@/assets/user.png"
 import logo from "@/assets/logo.png";
 const Navbar = () => {
     return (
-        <div className=" mx-auto pb-5 shadow-md bg-slate-900 sm:px-4">
+        <div className=" mx-auto shadow-md bg-slate-800 sm:px-4">
             <div className="navbar  min-h-[4rem]">
 
-                <div>
-                    <Image className=" rounded-full w-10 h-10" src={logo} width={40} height={40} alt="Logo"></Image>
+                <div className=" hidden sm:block">
+                    <Link href="/">
+                        <Image className=" rounded-full w-10 h-10" src={logo} width={40} height={40} alt="Logo"></Image>
+                    </Link>
                 </div>
 
                 {/* Left Side: Mobile Menu Button */}
@@ -42,28 +44,28 @@ const Navbar = () => {
 
                 {/* Right Side: Auth / Profile Section */}
                 <div className="navbar-end flex-1 justify-end gap-2 sm:gap-3">
-                    
-                        <div className="flex items-center gap-2 sm:gap-3">
-                           
-                                <h2 className="text-sm font-medium whitespace-nowrap max-w-[100px] xs:max-w-[140px] sm:max-w-[200px] truncate">
-                                    Hello
-                                </h2>
-                            
-                            <Image
-                                className="rounded-full shrink-0 w-8 h-8 sm:w-10 sm:h-10 object-cover border border-gray-200"
-                                src={userPng}
-                                width={40}
-                                height={40}
-                                alt="User Image"
-                            />
-                            <Link
-                                href="/"
-                                className="btn btn-sm sm:btn-md bg-gray-800 hover:bg-gray-900 text-white border-none shrink-0"
-                            >
-                                Login
-                            </Link>
-                        </div>
-                    
+
+                    <div className="flex items-center gap-2 sm:gap-3">
+
+                        <h2 className="text-sm font-medium whitespace-nowrap max-w-[100px] xs:max-w-[140px] sm:max-w-[200px] truncate">
+                            Hello
+                        </h2>
+
+                        <Image
+                            className="rounded-full shrink-0 w-8 h-8 sm:w-10 sm:h-10 object-cover border border-gray-200"
+                            src={userPng}
+                            width={40}
+                            height={40}
+                            alt="User Image"
+                        />
+                        <Link
+                            href="/"
+                            className="btn btn-sm sm:btn-md bg-gray-800 hover:bg-gray-900 text-white border-none shrink-0"
+                        >
+                            Login
+                        </Link>
+                    </div>
+
                 </div>
 
             </div>
