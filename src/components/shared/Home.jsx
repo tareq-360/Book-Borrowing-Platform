@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import SearchBar from './SearchBar';
+import Link from 'next/link';
 const HomePage = () => {
 
 
@@ -20,7 +21,7 @@ const HomePage = () => {
             {/* <SearchBar></SearchBar> */}
             <div className='pt-5'>
                 <h1 className=' text-4xl p-5 text-blue-500 font-bold'>Find Your Next Read</h1>
-                <button className=' btn btn-primary'>Browse Now</button>
+                <button className=' btn btn-primary'><Link href="/books">Browse Now</Link></button>
 
             </div>
 

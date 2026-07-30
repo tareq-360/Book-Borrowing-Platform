@@ -22,11 +22,11 @@ export default function RootLayout({ children }) {
   return (
     <html data-theme="dark"
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased `}
     >
       <body className="min-h-full">
         <Navbar></Navbar>
-        <main className=" min-h-screen ">
+        <main className="  bg-slate-900">
           {children}
         </main>
         <Foother></Foother>
