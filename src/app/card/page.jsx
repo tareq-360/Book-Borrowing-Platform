@@ -2,6 +2,9 @@
 import { useEffect, useState } from "react";
 import { Button, Card, CloseButton } from "@heroui/react";
 import { FcManager } from "react-icons/fc";
+import SearchBar from "@/components/shared/SearchBar";
+import { Label, SearchField } from "@heroui/react";
+import NoDataFound from "@/components/shared/NoDataFound";
 
 const BookCard = () => {
     const [data, setData] = useState([]);
@@ -12,47 +15,130 @@ const BookCard = () => {
 
     }, []);
     // console.log("data ",data);
+
+    const [searchVal, setSearchVal] = useState();
+    const inputValue = (event) => {
+        const input = event.target.value;
+        // console.log("Input Value is ", input);
+        setSearchVal(input);
+    }
+    const [seacrhBook, setSearchBook] = useState(null);
+    const [searchWord,setSearchWord]=useState();
+    const searchHandle = () => {
+        const filteredBook = data.filter(book => book.title.toLowerCase().includes(searchVal.toLowerCase()));
+        // console.log("Search Book ",filteredBook);
+        // filteredBook.map(data => console.log(data.title));
+
+        return (setSearchWord(searchVal) , setSearchBook(filteredBook));
+    }
+
+    console.log("Input Value is ", seacrhBook);
+
     return (
         <div className=" container mx-auto text-center py-10">
-            
-            <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {data.slice(0, 4).map(data =>
+            {/* search Bar */}
+            <div className=' my-5'>
 
-                    <Card key={data.id} className=" items-stretch ">
-                        <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
-                            <img
-                                alt={data.title}
-                                className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
-                                
-                                src={data.image_url}
-                            />
-                        </div>
-                        <div className="flex flex-1 flex-col gap-3">
-                            <Card.Header className="gap-1">
-                                <div className=" flex justify-between">
-                                    <div className=" flex justify-center items-center gap-2">
-                                        <FcManager></FcManager>
-                                        <Card.Title className="pr-8">{data.author}</Card.Title>
-                                    </div>
-                                    <Card.Title className="px-1 rounded-md text-orange-500 font-bold outline text-center">{data.category}</Card.Title>
-                                </div>
-                                <Card.Description>
-                                    {data.description}
-                                </Card.Description>
-                                <CloseButton aria-label="Close banner" className="absolute top-3 right-3" />
-                            </Card.Header>
-                            <Card.Footer className="mt-auto flex w-full flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
-                                <div className="flex flex-col">
-                                    <span className=" text-xl  font-bold text-orange-400  ">{data.available_quantity}</span>
-                                    <span className="text-xs text-muted font-bold">Available </span>
-                                </div>
-                                <Button className="w-full sm:w-auto">Borrow Now</Button>
-                            </Card.Footer>
-                        </div>
-                    </Card>
+                <SearchField className="" name="search">
+                    <div className=' flex justify-center items-center'>
+                        <SearchField.Group className="border-1 border-orange-100">
+                            <SearchField.SearchIcon />
+                            <SearchField.Input onChange={inputValue} className=" min-w-[20rem]" placeholder="Search..." />
+                            <SearchField.ClearButton />
+                        </SearchField.Group>
+                        <button onClick={() => searchHandle()} className=' btn  bg-base-100'>Search</button>
+                    </div>
+                </SearchField>
 
-                )}
             </div>
+            {/* Card section */}
+            {searchWord ?
+                seacrhBook?.length > 0 ?
+                    <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        {seacrhBook.map(data =>
+
+                            <Card key={data.id} className=" items-stretch ">
+                                <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
+                                    <img
+                                        alt={data.title}
+                                        className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+
+                                        src={data.image_url}
+                                    />
+                                </div>
+                                <div className="flex flex-1 flex-col gap-3">
+                                    <Card.Header className="gap-1">
+                                        <div className=" flex justify-between">
+                                            <div className=" flex justify-center items-center gap-2">
+                                                <FcManager></FcManager>
+                                                <Card.Title className="pr-8">{data.author}</Card.Title>
+                                            </div>
+                                            <Card.Title className="px-1 rounded-md text-orange-500 font-bold outline text-center">{data.category}</Card.Title>
+                                        </div>
+                                        <Card.Description>
+                                            <p className=" font-black py-3"> {data.title}</p>
+                                        </Card.Description>
+                                        <CloseButton aria-label="Close banner" className="absolute top-3 right-3" />
+                                    </Card.Header>
+                                    <Card.Footer className="mt-auto flex w-full flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                        <div className="flex flex-col">
+                                            <span className=" text-xl  font-bold text-orange-400  ">{data.available_quantity}</span>
+                                            <span className="text-xs text-muted font-bold">Available </span>
+                                        </div>
+                                        <Button className="w-full sm:w-auto">Borrow Now</Button>
+                                    </Card.Footer>
+                                </div>
+                            </Card>
+
+                        )}
+                    </div>
+                    :
+                    <NoDataFound searchTerm={seacrhBook} >
+
+                    </NoDataFound>
+
+
+                :
+                <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {data.slice(0, 4).map(data =>
+
+                        <Card key={data.id} className=" items-stretch ">
+                            <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
+                                <img
+                                    alt={data.title}
+                                    className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+
+                                    src={data.image_url}
+                                />
+                            </div>
+                            <div className="flex flex-1 flex-col gap-3">
+                                <Card.Header className="gap-1">
+                                    <div className=" flex justify-between">
+                                        <div className=" flex justify-center items-center gap-2">
+                                            <FcManager></FcManager>
+                                            <Card.Title className="pr-8">{data.author}</Card.Title>
+                                        </div>
+                                        <Card.Title className="px-1 rounded-md text-orange-500 font-bold outline text-center">{data.category}</Card.Title>
+                                    </div>
+                                    <Card.Description>
+                                        <p className=" font-black py-3"> {data.title}</p>
+                                    </Card.Description>
+                                    <CloseButton aria-label="Close banner" className="absolute top-3 right-3" />
+                                </Card.Header>
+                                <Card.Footer className="mt-auto flex w-full flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                    <div className="flex flex-col">
+                                        <span className=" text-xl  font-bold text-orange-400  ">{data.available_quantity}</span>
+                                        <span className="text-xs text-muted font-bold">Available </span>
+                                    </div>
+                                    <Button className="w-full sm:w-auto">Borrow Now</Button>
+                                </Card.Footer>
+                            </div>
+                        </Card>
+
+                    )}
+                </div>
+            }
+
         </div>
     );
 };
