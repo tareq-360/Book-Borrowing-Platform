@@ -5,6 +5,7 @@ import { FcManager } from "react-icons/fc";
 import SearchBar from "@/components/shared/SearchBar";
 import { Label, SearchField } from "@heroui/react";
 import NoDataFound from "@/components/shared/NoDataFound";
+import Link from "next/link";
 
 const BookCard = () => {
     const [data, setData] = useState([]);
@@ -23,13 +24,13 @@ const BookCard = () => {
         setSearchVal(input);
     }
     const [seacrhBook, setSearchBook] = useState(null);
-    const [searchWord,setSearchWord]=useState();
+    const [searchWord, setSearchWord] = useState();
     const searchHandle = () => {
         const filteredBook = data.filter(book => book.title.toLowerCase().includes(searchVal.toLowerCase()));
         // console.log("Search Book ",filteredBook);
         // filteredBook.map(data => console.log(data.title));
 
-        return (setSearchWord(searchVal) , setSearchBook(filteredBook));
+        return (setSearchWord(searchVal), setSearchBook(filteredBook));
     }
 
     console.log("Input Value is ", seacrhBook);
@@ -54,18 +55,20 @@ const BookCard = () => {
             {/* Card section */}
             {searchWord ?
                 seacrhBook?.length > 0 ?
+                    // card by search
                     <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {seacrhBook.map(data =>
-
                             <Card key={data.id} className=" items-stretch ">
-                                <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
-                                    <img
-                                        alt={data.title}
-                                        className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+                                <Link href={`card-details/${data.id}`}>
+                                    <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
+                                        <img
+                                            alt={data.title}
+                                            className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
 
-                                        src={data.image_url}
-                                    />
-                                </div>
+                                            src={data.image_url}
+                                        />
+                                    </div>
+                                </Link>
                                 <div className="flex flex-1 flex-col gap-3">
                                     <Card.Header className="gap-1">
                                         <div className=" flex justify-between">
@@ -90,6 +93,7 @@ const BookCard = () => {
                                 </div>
                             </Card>
 
+
                         )}
                     </div>
                     :
@@ -101,16 +105,17 @@ const BookCard = () => {
                 :
                 <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {data.slice(0, 4).map(data =>
-
                         <Card key={data.id} className=" items-stretch ">
-                            <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
-                                <img
-                                    alt={data.title}
-                                    className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+                            <Link href={`card-details/${data.id}`}>
+                                <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
+                                    <img
+                                        alt={data.title}
+                                        className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
 
-                                    src={data.image_url}
-                                />
-                            </div>
+                                        src={data.image_url}
+                                    />
+                                </div>
+                            </Link>
                             <div className="flex flex-1 flex-col gap-3">
                                 <Card.Header className="gap-1">
                                     <div className=" flex justify-between">
@@ -134,6 +139,7 @@ const BookCard = () => {
                                 </Card.Footer>
                             </div>
                         </Card>
+
 
                     )}
                 </div>

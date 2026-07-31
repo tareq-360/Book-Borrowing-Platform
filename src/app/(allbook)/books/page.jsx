@@ -65,6 +65,7 @@ const AllBooks = () => {
             {/* Card section */}
             {searchWord ?
                 seacrhBook?.length > 0 ?
+                    // category
                     <div className=" grid grid-cols-12">
                         <div className=" col-span-2">
                             <h1 className=" font-bold text-xl text-left ">All Category</h1>
@@ -79,14 +80,16 @@ const AllBooks = () => {
                                 {categoryBooks.map(data =>
 
                                     <Card key={data.id} className=" items-stretch ">
-                                        <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
-                                            <img
-                                                alt={data.title}
-                                                className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+                                        <Link href={`card-details/${data.id}`}>
+                                            <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
+                                                <img
+                                                    alt={data.title}
+                                                    className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
 
-                                                src={data.image_url}
-                                            />
-                                        </div>
+                                                    src={data.image_url}
+                                                />
+                                            </div>
+                                        </Link>
                                         <div className="flex flex-1 flex-col gap-3">
                                             <Card.Header className="gap-1">
                                                 <div className=" flex justify-between">
@@ -118,14 +121,16 @@ const AllBooks = () => {
                                 {seacrhBook.map(data =>
 
                                     <Card key={data.id} className=" items-stretch ">
-                                        <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
-                                            <img
-                                                alt={data.title}
-                                                className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+                                        <Link href={`card-details/${data.id}`}>
+                                            <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
+                                                <img
+                                                    alt={data.title}
+                                                    className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
 
-                                                src={data.image_url}
-                                            />
-                                        </div>
+                                                    src={data.image_url}
+                                                />
+                                            </div>
+                                        </Link>
                                         <div className="flex flex-1 flex-col gap-3">
                                             <Card.Header className="gap-1">
                                                 <div className=" flex justify-between">
@@ -163,6 +168,7 @@ const AllBooks = () => {
 
                 :
                 <div className=" grid grid-cols-12 gap-2">
+                    {/* Category */}
                     <div className=" col-span-2">
                         <h1 className=" font-bold text-xl text-left ">All Category</h1>
                         <ul className=" text-left py-3 space-y-2">
@@ -172,18 +178,20 @@ const AllBooks = () => {
                         </ul>
                     </div>
                     {categoryBooks ?
+                        // card by category
                         <div className=" col-span-10 grid grid-cols-1 md:grid-cols-3  gap-4">
                             {categoryBooks.map(data =>
-
                                 <Card key={data.id} className=" items-stretch ">
-                                    <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
-                                        <img
-                                            alt={data.title}
-                                            className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+                                    <Link href={`card-details/${data.id}`}>
+                                        <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
+                                            <img
+                                                alt={data.title}
+                                                className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
 
-                                            src={data.image_url}
-                                        />
-                                    </div>
+                                                src={data.image_url}
+                                            />
+                                        </div>
+                                    </Link>
                                     <div className="flex flex-1 flex-col gap-3">
                                         <Card.Header className="gap-1">
                                             <div className=" flex justify-between">
@@ -207,22 +215,25 @@ const AllBooks = () => {
                                         </Card.Footer>
                                     </div>
                                 </Card>
+
 
                             )}
                         </div>
                         :
+                        // card by all data 
                         <div className=" col-span-9 grid grid-cols-1 md:grid-cols-3  gap-4">
                             {data.map(data =>
-
                                 <Card key={data.id} className=" items-stretch ">
-                                    <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
-                                        <img
-                                            alt={data.title}
-                                            className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+                                    <Link href={`card-details/${data.id}`}>
+                                        <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
+                                            <img
+                                                alt={data.title}
+                                                className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
 
-                                            src={data.image_url}
-                                        />
-                                    </div>
+                                                src={data.image_url}
+                                            />
+                                        </div>
+                                    </Link>
                                     <div className="flex flex-1 flex-col gap-3">
                                         <Card.Header className="gap-1">
                                             <div className=" flex justify-between">
@@ -246,6 +257,7 @@ const AllBooks = () => {
                                         </Card.Footer>
                                     </div>
                                 </Card>
+
 
                             )}
                         </div>
