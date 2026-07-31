@@ -5,7 +5,7 @@ import userPng from "@/assets/user.png"
 import logo from "@/assets/logo.png";
 const Navbar = () => {
     return (
-        <div className=" mx-auto shadow-md bg-black sm:px-4">
+        <div className=" mx-auto shadow-md  bg-slate-800 sm:px-4">
             <div className="navbar  min-h-[4rem]">
 
                 <div className=" hidden sm:block">

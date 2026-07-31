@@ -40,7 +40,7 @@ const CardDetails = ({ params }) => {
         //     </div>
         // </div>
         <div className="container mx-auto bg-slate-900 min-h-screen flex items-center justify-center p-4">
-            <div className="bg-black rounded-md flex flex-col md:flex-row-reverse p-10 shadow-sm items-center justify-center gap-8 ">
+            <div className="bg-base-100 rounded-md flex flex-col md:flex-row-reverse p-10 shadow-sm items-center justify-center gap-8 ">
 
                 {/* ছবি সংক্রান্ত ডিভ */}
                 <figure className="w-full md:w-1/2 flex justify-center">

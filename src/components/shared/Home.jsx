@@ -10,7 +10,7 @@ const HomePage = () => {
     
     return (
         <div className=' container mx-auto text-center py-5'>
-            <div className=' flex justify-center items-center  bg-black my-5'>
+            <div className=' flex justify-center items-center  bg-base-300 my-5'>
                 <button className=' btn btn-secondary font-bold'>Upcoming</button>
                 <Marquee>
 
