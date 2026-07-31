@@ -59,7 +59,7 @@ const Navbar = () => {
                             alt="User Image"
                         />
                         <Link
-                            href="/"
+                            href="/login"
                             className="btn btn-sm sm:btn-md bg-gray-800 hover:bg-gray-900 text-white border-none shrink-0"
                         >
                             Login
