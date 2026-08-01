@@ -25,15 +25,17 @@ const Register = () => {
             callbackURL: "/login",
         });
         // console.log(res? `data = ${res}` : `error= ${error.message}`);
-        if(res){
+        if (res) {
             alert("Register Successful ")
             router.push("/login");
         }
-        else{
+        else {
             alert(error.message)
         }
         // {res? alert("Register Successful ") : alert(error.message)};
         // console.log("Password ",password);
+
+        
     }
     return (
         <div className=" container flex justify-center items-center mx-auto min-h-screen">
