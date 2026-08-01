@@ -1,9 +1,35 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import NavLink from "./NavLink";
 import userPng from "@/assets/user.png"
 import logo from "@/assets/logo.png";
-const Navbar = () => {
+import { auth } from "@/app/lib/auth";
+import { headers } from "next/headers";
+import Logout from "@/app/(auth)/logOut/page";
+const Navbar = async () => {
+    const session = await auth.api.getSession({
+        headers: await headers()
+    })
+    // console.log("session data ",session.user);
+    const userData = () => {
+        if (session) {
+            const data = session.user;
+            return data;
+        }
+        // else {
+        //     const data = {
+        //         name: 'Not Login',
+        //         email: 'User Not Login',
+
+        //     }
+        //     return data;
+        // }
+    }
+
+    const user = userData();
+    // console.log('User Name is ', user?.email);
+
     return (
         <div className=" mx-auto shadow-md  bg-slate-800 sm:px-4">
             <div className="navbar  min-h-[4rem]">
@@ -48,7 +74,7 @@ const Navbar = () => {
                     <div className="flex items-center gap-2 sm:gap-3">
 
                         <h2 className="text-sm font-medium whitespace-nowrap max-w-[100px] xs:max-w-[140px] sm:max-w-[200px] truncate">
-                            Hello
+                             <span className=" truncate">{user?`Hello ${user?.name}`:" "} </span>
                         </h2>
 
                         <Image
@@ -58,12 +84,17 @@ const Navbar = () => {
                             height={40}
                             alt="User Image"
                         />
-                        <Link
-                            href="/login"
-                            className="btn btn-sm sm:btn-md bg-gray-800 hover:bg-gray-900 text-white border-none shrink-0"
-                        >
-                            Login
-                        </Link>
+                        {user ?
+                            <Logout></Logout>
+                            :
+                            <Link
+                                href="/login"
+                                className="btn btn-sm sm:btn-md bg-gray-800 hover:bg-gray-900 text-white border-none shrink-0"
+                            >
+                                Login
+                            </Link>}
+
+
                     </div>
 
                 </div>
