@@ -19,7 +19,7 @@ const UpdateUser = () => {
             
         })
         alert("Update successful ");
-        console.log("Name ", name, " url ", image);
+        // console.log("Name ", name, " url ", image);
 
     }
 
@@ -28,7 +28,7 @@ const UpdateUser = () => {
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-                        <h1 className=" text-xl font-bold text-center py-5">Update Your Name Account</h1>
+                        <h1 className=" text-xl font-bold text-center py-5">Update Your Account</h1>
 
                         <label className="label">Name</label>
                         <input {...register("name")} type="text" className="input text-white" placeholder="Change Name" />

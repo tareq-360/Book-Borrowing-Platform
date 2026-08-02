@@ -18,14 +18,7 @@ const Navbar = async () => {
             const data = session.user;
             return data;
         }
-        // else {
-        //     const data = {
-        //         name: 'Not Login',
-        //         email: 'User Not Login',
-
-        //     }
-        //     return data;
-        // }
+        
     }
 
     const user = userData();
