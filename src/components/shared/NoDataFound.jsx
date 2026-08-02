@@ -1,11 +1,11 @@
 'use client';
 
 import { Button, Card, CardBody, CardContent } from "@heroui/react";
-import { PiSimCardBold } from "react-icons/pi";
+import Link from "next/link";
 
-// import { Card, CardBody, Button } from '@heroui/react';
 
 export default function NoDataFound({ searchTerm = ''}) {
+  
   return (
     
     <Card
@@ -42,7 +42,7 @@ export default function NoDataFound({ searchTerm = ''}) {
           {searchTerm ? 'No results found' : 'No data available'}
         </h3>
 
-        {/* Dynamic Context Message */}
+        <Link href="/"><button className=" btn btn-secondary ">Back To Home</button></Link>
         <p className="text-sm text-base-content/70 max-w-sm mb-6">
           {searchTerm ? (
             <>

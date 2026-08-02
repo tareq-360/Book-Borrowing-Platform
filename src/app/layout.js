@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full">
         <Navbar></Navbar>
-        <main className="  bg-slate-900">
+        <main className="  bg-slate-900 px-10 sm:px-3">
           {children}
         </main>
         <Foother></Foother>

@@ -53,7 +53,7 @@ const Navbar = async () => {
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[50] mt-3 w-52 p-2 shadow-lg border border-gray-100"
                         >
                             <li><NavLink href="/">Home</NavLink></li>
-                            <li><NavLink href="/about-us">All Books</NavLink></li>
+                            <li><NavLink href="/all-books">All Books</NavLink></li>
                             <li><NavLink href="/career">My Profile</NavLink></li>
                         </ul>
                     </div>
@@ -63,7 +63,7 @@ const Navbar = async () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 font-medium gap-2">
                         <li><NavLink href="/">Home</NavLink></li>
-                        <li><NavLink href="/about-us">All Books</NavLink></li>
+                        <li><NavLink href="/all-books">All Books</NavLink></li>
                         <li><NavLink href="/career">My Profile</NavLink></li>
                     </ul>
                 </div>

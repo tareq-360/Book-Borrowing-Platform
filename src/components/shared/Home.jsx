@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import SearchBar from './SearchBar';
 import Link from 'next/link';
+import 'animate.css';
 const HomePage = () => {
 
 
@@ -19,7 +20,7 @@ const HomePage = () => {
             </div>
             {/* Search Section */}
             {/* <SearchBar></SearchBar> */}
-            <div className='pt-5'>
+            <div className='pt-5 animate__animated animate__bounceInDown animate__delay-0.5s'>
                 <h1 className=' text-4xl p-5 text-blue-500 font-bold'>Find Your Next Read</h1>
                 <button className=' btn btn-primary'><Link href="/books">Browse Now</Link></button>
 

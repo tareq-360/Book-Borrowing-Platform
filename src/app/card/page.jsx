@@ -6,6 +6,8 @@ import SearchBar from "@/components/shared/SearchBar";
 import { Label, SearchField } from "@heroui/react";
 import NoDataFound from "@/components/shared/NoDataFound";
 import Link from "next/link";
+import 'animate.css';
+
 
 const BookCard = () => {
     const [data, setData] = useState([]);
@@ -44,7 +46,7 @@ const BookCard = () => {
                     <div className=' flex justify-center items-center'>
                         <SearchField.Group className="border-1 border-orange-100">
                             <SearchField.SearchIcon />
-                            <SearchField.Input onChange={inputValue} className=" min-w-[20rem]" placeholder="Search..." />
+                            <SearchField.Input onChange={inputValue} className=" min-w-[20rem] text-white" placeholder="Search..." />
                             <SearchField.ClearButton />
                         </SearchField.Group>
                         <button onClick={() => searchHandle()} className=' btn  bg-base-100'>Search</button>
@@ -58,17 +60,17 @@ const BookCard = () => {
                     // card by search
                     <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {seacrhBook.map(data =>
-                            <Card key={data.id} className=" items-stretch ">
-                                <Link href={`card-details/${data.id}`}>
-                                    <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
-                                        <img
-                                            alt={data.title}
-                                            className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+                            <Card key={data.id} className=" items-stretch animate__animated animate__fadeInRight ">
 
-                                            src={data.image_url}
-                                        />
-                                    </div>
-                                </Link>
+                                <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
+                                    <img
+                                        alt={data.title}
+                                        className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+
+                                        src={data.image_url}
+                                    />
+                                </div>
+
                                 <div className="flex flex-1 flex-col gap-3">
                                     <Card.Header className="gap-1">
                                         <div className=" flex justify-between">
@@ -88,7 +90,9 @@ const BookCard = () => {
                                             <span className=" text-xl  font-bold text-orange-400  ">{data.available_quantity}</span>
                                             <span className="text-xs text-muted font-bold">Available </span>
                                         </div>
-                                        <Button className="w-full sm:w-auto">Borrow Now</Button>
+                                        <Link href={`card-details/${data.id}`}>
+                                            <Button className="w-full sm:w-auto">Show Details</Button>
+                                        </Link>
                                     </Card.Footer>
                                 </div>
                             </Card>
@@ -105,17 +109,17 @@ const BookCard = () => {
                 :
                 <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {data.slice(0, 4).map(data =>
-                        <Card key={data.id} className=" items-stretch ">
-                            <Link href={`card-details/${data.id}`}>
-                                <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
-                                    <img
-                                        alt={data.title}
-                                        className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+                        <Card key={data.id} className=" hover:border-b-2 items-stretch animate__animated animate__fadeInLeft animate__delay-1s ">
 
-                                        src={data.image_url}
-                                    />
-                                </div>
-                            </Link>
+                            <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
+                                <img
+                                    alt={data.title}
+                                    className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+
+                                    src={data.image_url}
+                                />
+                            </div>
+
                             <div className="flex flex-1 flex-col gap-3">
                                 <Card.Header className="gap-1">
                                     <div className=" flex justify-between">
@@ -135,7 +139,9 @@ const BookCard = () => {
                                         <span className=" text-xl  font-bold text-orange-400  ">{data.available_quantity}</span>
                                         <span className="text-xs text-muted font-bold">Available </span>
                                     </div>
-                                    <Button className="w-full sm:w-auto">Borrow Now</Button>
+                                    <Link href={`card-details/${data.id}`}>
+                                        <Button className="w-full sm:w-auto">View Details</Button>
+                                    </Link>
                                 </Card.Footer>
                             </div>
                         </Card>
@@ -145,7 +151,7 @@ const BookCard = () => {
                 </div>
             }
 
-        </div>
+        </div >
     );
 };
 
