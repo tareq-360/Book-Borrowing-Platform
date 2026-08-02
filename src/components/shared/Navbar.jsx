@@ -7,6 +7,7 @@ import logo from "@/assets/logo.png";
 import { auth } from "@/app/lib/auth";
 import { headers } from "next/headers";
 import Logout from "@/app/(auth)/logOut/page";
+import { FaUserAlt } from "react-icons/fa";
 const Navbar = async () => {
     const session = await auth.api.getSession({
         headers: await headers()
@@ -31,7 +32,7 @@ const Navbar = async () => {
     // console.log('User Name is ', user?.email);
 
     return (
-        <div className=" mx-auto shadow-md  bg-slate-800 sm:px-4">
+        <div className=" mx-auto shadow-md  bg-slate-800/75 sm:px-4 sticky top-0 z-50">
             <div className="navbar  min-h-[4rem]">
 
                 <div className=" hidden sm:block">
@@ -54,7 +55,7 @@ const Navbar = async () => {
                         >
                             <li><NavLink href="/">Home</NavLink></li>
                             <li><NavLink href="/all-books">All Books</NavLink></li>
-                            <li><NavLink href="/career">My Profile</NavLink></li>
+                            <li><NavLink href="/user-profile">My Profile</NavLink></li>
                         </ul>
                     </div>
                 </div>
@@ -64,7 +65,7 @@ const Navbar = async () => {
                     <ul className="menu menu-horizontal px-1 font-medium gap-2">
                         <li><NavLink href="/">Home</NavLink></li>
                         <li><NavLink href="/all-books">All Books</NavLink></li>
-                        <li><NavLink href="/career">My Profile</NavLink></li>
+                        <li><NavLink href="/user-profile">My Profile</NavLink></li>
                     </ul>
                 </div>
 
@@ -74,16 +75,19 @@ const Navbar = async () => {
                     <div className="flex items-center gap-2 sm:gap-3">
 
                         <h2 className="text-sm font-medium whitespace-nowrap max-w-[100px] xs:max-w-[140px] sm:max-w-[200px] truncate">
-                             <span className=" truncate">{user?`Hello ${user?.name}`:" "} </span>
+                            <span className=" truncate">{user ? `Hello ${user?.name}` : " "} </span>
                         </h2>
 
-                        <Image
+                        {user ? <img
                             className="rounded-full shrink-0 w-8 h-8 sm:w-10 sm:h-10 object-cover border border-gray-200"
-                            src={userPng}
-                            width={40}
-                            height={40}
-                            alt="User Image"
-                        />
+                            src={user?.image}
+                            alt={user?.name || "user image"} />
+                            :
+                            <div className="rounded-full shrink-0 w-8 h-8 sm:w-10 sm:h-10 border border-slate-700 bg-slate-800 flex items-center justify-center text-slate-300">
+                                <FaUserAlt className="w-4 h-4" />
+                            </div>
+                        }
+
                         {user ?
                             <Logout></Logout>
                             :

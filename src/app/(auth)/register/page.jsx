@@ -15,13 +15,13 @@ const Register = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-        const { name, email, password } = data;
+        const { name,image, email, password } = data;
         // console.log("Name = ",name);
         const { data: res, error } = await authClient.signUp.email({
             name: name, // required
             email: email, // required
             password: password, // required
-            // image: "https://example.com/image.png",
+            image: image,
             callbackURL: "/login",
         });
         // console.log(res? `data = ${res}` : `error= ${error.message}`);
@@ -47,6 +47,10 @@ const Register = () => {
                         <label className="label">Name</label>
                         <input {...register("name", { required: "name field is empty!" })} type="text" className="input text-white" placeholder="Your Name " />
                         {errors.name && <span className=" text-red-500 font-bold p-2">{errors.name.message}</span>}
+
+                        <label className="label">Image URL</label>
+                        <input {...register("image", { required: "Image field is empty!" })} type="text" className="input text-white" placeholder="Your Image URL " />
+                        {errors.image && <span className=" text-red-500 font-bold p-2">{errors.image.message}</span>}
 
                         <label className="label">Email</label>
                         <input {...register("email", { required: "email field is empty!" })} type="email" className="input text-white" placeholder="Email" />

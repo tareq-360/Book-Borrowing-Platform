@@ -122,7 +122,7 @@ const AllBooksNav = () => {
                 :
                 <div className=" grid grid-cols-12 gap-2">
                     {/* Category */}
-                    <div className=" col-span-2">
+                    <div className=" col-span-3 lg:col-span-2">
                         <h1 className=" font-bold text-xl text-left ">All Category</h1>
                         <ul className=" text-left py-3 space-y-2">
                             <li className=" cursor-pointer hover:bg-base-100 hover:text-green-500 hover:rounded-md" onClick={() => categoryHandle("science")}>Science</li>
@@ -132,7 +132,7 @@ const AllBooksNav = () => {
                     </div>
                     {categoryBooks ?
                         // card by category
-                        <div className=" col-span-10 grid grid-cols-1 md:grid-cols-3  gap-4">
+                        <div className=" col-span-9 lg:col-span-10 grid grid-cols-1 md:grid-cols-3  gap-4">
                             {categoryBooks.map(data =>
                                 <Card key={data.id} className=" items-stretch ">
 
@@ -178,7 +178,7 @@ const AllBooksNav = () => {
                         // card by all data 
                         <div className=" col-span-9 grid grid-cols-1 md:grid-cols-3  gap-4">
                             {data.map(data =>
-                                <Card key={data.id} className="animate__animated animate__fadeInUp  items-stretch ">
+                                <Card key={data.id} className="animate__animated animate__fadeInUp">
 
                                     <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
                                         <img
@@ -194,7 +194,7 @@ const AllBooksNav = () => {
                                             <div className=" flex justify-between">
                                                 <div className=" flex justify-center items-center gap-2">
                                                     <FcManager></FcManager>
-                                                    <Card.Title className="pr-8">{data.author}</Card.Title>
+                                                    <Card.Title className="pr-8 text-white">{data.author}</Card.Title>
                                                 </div>
                                                 <Card.Title className="px-1 rounded-md text-orange-500 font-bold outline text-center">{data.category}</Card.Title>
                                             </div>

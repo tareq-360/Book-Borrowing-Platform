@@ -51,7 +51,7 @@ const AllBooks = () => {
            
                 <div className=" grid grid-cols-12 gap-2">
                     {/* Category */}
-                    <div className=" col-span-2">
+                    <div className=" col-span-3 lg:col-span-2">
                         <h1 className=" font-bold text-xl text-left ">All Category</h1>
                         <ul className=" text-left py-3 space-y-2">
                             <li className=" cursor-pointer hover:bg-base-100 hover:text-green-500 hover:rounded-md" onClick={() => categoryHandle("science")}>Science</li>
@@ -61,7 +61,7 @@ const AllBooks = () => {
                     </div>
                     {categoryBooks ?
                         // card by category
-                        <div className=" col-span-10 grid grid-cols-1 md:grid-cols-3  gap-4">
+                        <div className=" col-span-9 lg:col-span-10 grid grid-cols-1 md:grid-cols-3  gap-4">
                             {categoryBooks.map(data =>
                                 <Card key={data.id} className=" items-stretch ">
                                     <Link href={`card-details/${data.id}`}>
@@ -103,7 +103,7 @@ const AllBooks = () => {
                         </div>
                         :
                         // card by all data 
-                        <div className=" col-span-9 grid grid-cols-1 md:grid-cols-3  gap-4">
+                        <div className=" col-span-9 lg:col-span-10 grid grid-cols-1 md:grid-cols-3  gap-4">
                             {data.map(data =>
                                 <Card key={data.id} className=" animate__animated animate__fadeInLeft items-stretch ">
 

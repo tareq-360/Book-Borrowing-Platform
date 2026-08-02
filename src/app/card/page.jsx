@@ -40,7 +40,7 @@ const BookCard = () => {
     return (
         <div className=" container mx-auto text-center py-10">
             {/* search Bar */}
-            <div className=' my-5'>
+            <div className=' mb-10'>
 
                 <SearchField className="" name="search">
                     <div className=' flex justify-center items-center'>
