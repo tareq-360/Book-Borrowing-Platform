@@ -2,6 +2,7 @@
 import { authClient } from "@/app/lib/auth-client";
 import Link from "next/link";
 import { Form, useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
     const {
@@ -19,14 +20,23 @@ const Login = () => {
             rememberMe: true,
             callbackURL: "/",
         });
+
+        if (error) {
+            toast.error(error.message);
+        }
+        else{
+            toast.success("logged in Successful ");
+        }
+
+
     }
 
     // google signin
-        const signIn = async () => {
-            const data = await authClient.signIn.social({
-                provider: "google",
-            });
-        };
+    const signIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+    };
 
     return (
         <div className=" container flex justify-center items-center mx-auto min-h-screen">
@@ -52,6 +62,7 @@ const Login = () => {
                 </button>
 
             </div>
+            <ToastContainer />
         </div>
     );
 };
